@@ -1,0 +1,20 @@
+Semi-general-purpose isometric tiling engine, based on pygame
+
+Needs to support:
+- Very big worlds (so dynamic loading of displayed area)
+- Caching of graphics
+- Scrolling
+- Multiple layers (ground, effects, solid things like figures, buildings, plants)
+- Drawing borders around things in different colors (temporary animated or toggle)
+- Elevation map for every layer (adds to elevation at point of layer below, matrix with single integer for every point, possibly something smartly sparse)
+- Depth transition:
+	Either: Transition point for every layer (things to north-east of this point are drawn below the layer)
+	Or: Depth map, integer for every pixel in the texture gives its z-coordinate, relative to the block (better but far slower)
+	Alternative one means that for an area with movement, only the layer order has to be determined
+	Alternative two means that the layer order for every pixel needs to be determined
+- Mouse and keyboard events (programmable, selection etc)
+- Collision detection (uses height maps, every figure has a maximum height difference it can overcome)
+- Way finding (again using the height map as its graph, height differences increase cost (because of added length))
+- Map rotation (so mirroring items)
+- Terrain generation
+- Lighting effects (color overlays for tiles, shadows maybe, light sources, elevated things block light)
